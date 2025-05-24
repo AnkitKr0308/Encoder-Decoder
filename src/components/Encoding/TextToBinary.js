@@ -1,0 +1,78 @@
+import React, { useState } from "react";
+
+function TextToBinary() {
+  let [encodedval, setEncodedVal] = useState("");
+
+  const encodetoBase64 = () => {
+    return btoa(document.getElementById("EncodeText").value);
+  };
+
+  const converttobase64 = () => {
+    const encodedpassword = encodetoBase64();
+    setEncodedVal(encodedpassword);
+  };
+
+  return (
+    <div className="flex flex-col w-[50vw] h-[50vh]  mt-[20vh] mb-[20vh] ml-[15vw] mr-[15vw] justify-start rounded bg-slate-300 p-4">
+      <div className=" mt-[3vh] text-center  font-bold text-xl ">
+        Encryption
+      </div>
+      <div className="text-center mt-4 ">
+        <label
+          className="font-semibold text-black  text-left text-lg"
+          htmlFor="inputText"
+        >
+          Enter Text to Encode
+        </label>
+      </div>
+      <div className="flex flex-wrap justify-center mt-4">
+        <input
+          type="text"
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-[20vw]"
+          id="EncodeText"
+          placeholder="Enter Text"
+        />
+      </div>
+      <div className="flex flex-row gap-2 justify-center mt-6">
+        <button
+          id="converttobase64"
+          onClick={converttobase64}
+          className="bg-green-500 border border-white hover:bg-green-700   text-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Convert To Base64
+        </button>
+        <button
+          id="converttobase32"
+          className="bg-green-500 border border-white hover:bg-green-700   text-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Convert To Base32
+        </button>
+        <button
+          id="converttobase16"
+          className="bg-green-500 border border-white hover:bg-green-700   text-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Convert To Base16
+        </button>
+      </div>
+      <div className="text-center mt-6 ">
+        <label
+          className="font-semibold text-black  text-left text-lg"
+          htmlFor="inputText"
+        >
+          Encoded Value
+        </label>
+      </div>
+      <div className="flex flex-wrap justify-center mt-">
+        <input
+          type="text"
+          className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-[20vw]"
+          id="EncodedValue"
+          readOnly
+          value={encodedval}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default TextToBinary;
