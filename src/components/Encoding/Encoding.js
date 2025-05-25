@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-import TextToBinary from "./TextToBinary";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Encoding() {
-  let [showtexttobinary, setshowtexttobinary] = useState(false);
+  const navigate = useNavigate();
+  // let [showtexttobinary, setshowtexttobinary] = useState(false);
 
   const showtexttobinaryscreen = () => {
-    setshowtexttobinary(true);
+    // setshowtexttobinary(true);
+    navigate("texttobinary");
   };
 
   return (
@@ -38,7 +40,7 @@ function Encoding() {
             </div>
           </div>
         </div>
-        {showtexttobinary && <TextToBinary />}
+        <Outlet />
         {/* <div className="flex flex-wrap  content-center ml-96 ">
           <div className="w-full min-w-xl">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

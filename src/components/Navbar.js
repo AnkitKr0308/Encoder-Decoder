@@ -1,19 +1,22 @@
-import React, { useState } from "react";
-import Encoding from "./Encoding/Encoding";
-import Decoding from "./Decoding/Decoding";
+import React from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Navbar() {
-  let [showEncryption, setShowEncryption] = useState(false);
-  let [showDecryption, setShowDecryption] = useState(false);
+  // let [showEncryption, setShowEncryption] = useState(false);
+  // let [showDecryption, setShowDecryption] = useState(false);
+
+  const navigate = useNavigate();
 
   const showEncrypt = () => {
-    setShowEncryption(true);
-    setShowDecryption(false);
+    // setShowEncryption(true);
+    // setShowDecryption(false);
+    navigate("/encode");
   };
 
   const showDecrypt = () => {
-    setShowDecryption(true);
-    setShowEncryption(false);
+    // setShowDecryption(true);
+    // setShowEncryption(false);
+    navigate("/decode");
   };
 
   return (
@@ -39,16 +42,15 @@ function Navbar() {
           </button>
         </nav>
       </div>
-      {showEncryption && (
-        <div className="flex justify-start">
-          <Encoding />
-        </div>
-      )}
-      {showDecryption && (
+      {/* {showEncryption} */}
+      <Outlet />
+
+      {/* {showDecryption && (
         <div className="flex justify-start">
           <Decoding />
         </div>
-      )}
+      )} */}
+      <Outlet />
     </>
   );
 }
