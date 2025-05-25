@@ -10,6 +10,13 @@ function CharacterEncoding() {
     setEncodedVal(value);
   }, [setEncodedVal]);
 
+  const encodeutf8 = useCallback(() => {
+    const str = document.getElementById("EncodeText").value;
+    const encoder = new TextEncoder();
+    const cnvrt2utf8 = encoder.encode(str);
+    setEncodedVal(cnvrt2utf8);
+  }, [setEncodedVal]);
+
   useEffect(() => {
     if (encodedval && selectreference.current) {
       selectreference.current?.select();
@@ -48,7 +55,7 @@ function CharacterEncoding() {
         </button>
         <button
           id="utf-8"
-          //   onClick={encodetoBase32}
+          onClick={encodeutf8}
           className="bg-green-500 border border-white hover:bg-green-700   text-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Convert to UTF-8
