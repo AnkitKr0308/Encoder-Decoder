@@ -50,7 +50,6 @@ function Navbar() {
           <Decoding />
         </div>
       )} */}
-      <Outlet />
     </>
   );
 }

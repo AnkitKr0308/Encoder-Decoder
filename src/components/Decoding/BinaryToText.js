@@ -59,7 +59,9 @@ function BinaryToText() {
 
   return (
     <div className="flex flex-col w-[50vw] h-[50vh]  mt-[20vh] mb-[20vh] ml-[15vw] mr-[15vw] justify-start rounded bg-slate-300 p-4">
-      <div className=" mt-[3vh] text-center  font-bold text-xl ">Decoding</div>
+      <div className=" mt-[3vh] text-center  font-bold text-xl ">
+        Binary-to-Text Decoding
+      </div>
       <div className="text-center mt-4 ">
         <label
           className="font-semibold text-black  text-left text-lg"
