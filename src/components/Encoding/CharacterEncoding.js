@@ -17,6 +17,13 @@ function CharacterEncoding() {
     setEncodedVal(cnvrt2utf8);
   }, [setEncodedVal]);
 
+  const encodeutf16 = useCallback(() => {
+    const str = document.getElementById("EncodeText").value;
+    const encoder = new TextEncoder("utf-16le");
+    const cnvrt2utf16 = encoder.encode(str);
+    setEncodedVal(cnvrt2utf16);
+  }, [setEncodedVal]);
+
   useEffect(() => {
     if (encodedval && selectreference.current) {
       selectreference.current?.select();
@@ -62,7 +69,7 @@ function CharacterEncoding() {
         </button>
         <button
           id="utf-16"
-          //   onClick={converttobase16}
+          onClick={encodeutf16}
           className="bg-green-500 border border-white hover:bg-green-700   text-white hover:text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Convert To UTF-16
